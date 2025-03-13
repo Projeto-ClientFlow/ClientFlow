@@ -123,6 +123,32 @@ Este projeto foi possível graças às contribuições das seguintes desenvolved
         </a>
       </td>
     </tr>
+    <tr>
+      <td align="center">
+        <a href="https://www.linkedin.com/in/larissa-alves-s/" title="Linkedin da Larissa Alves">
+          <img src="https://media.licdn.com/dms/image/v2/D4D03AQFZaBaC-aUVow/profile-displayphoto-shrink_400_400/B4DZSqh72uHYAg-/0/1738027811288?e=1747267200&v=beta&t=6DM_y3QMq47Kb_qSkOcxjFlPsaBcqwZ_0JxLYxL1Bm8" width="100px;" alt="Foto da Larissa Alves"/><br>
+          <sub>
+            <b>Larissa Alves</b>
+          </sub>
+        </a>
+      </td>
+      <td align="center">
+        <a href="https://github.com/MariPimentelCarmo" title="GitHub da Mariana Carmo">
+          <img src="https://avatars.githubusercontent.com/u/99743029?v=4" width="100px;" alt="Foto da Mariana Carmo"/><br>
+          <sub>
+            <b>Mariana Carmo</b>
+          </sub>
+        </a>
+      </td>
+      <td align="center">
+        <a href="https://github.com/fernandafclg" title="GitHub da Fernanda Pereira">
+          <img src="https://avatars.githubusercontent.com/u/180988235?v=4" width="100px;" alt="Foto da Fernanda Pereira"/><br>
+          <sub>
+            <b>Fernanda Pereira</b>
+          </sub>
+        </a>
+      </td>
+    </tr>
   </table>
 </div>
 
