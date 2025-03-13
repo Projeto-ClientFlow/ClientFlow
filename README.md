@@ -3,6 +3,8 @@
 # Projeto ClientFlow
 ## CRM - Sistema de Gestão de Clientes
 
+![Banner do Projeto ClientFlow](https://github.com/Projeto-ClientFlow/ClientFlow/blob/4c406ac1deaa08fe3cdabae57960278b204de6e6/src/img/ClientFlow_Banner.png)
+
 </div>
 
 O projeto **ClientFlow** é uma aplicação backend desenvolvida em Java com o **Spring Framework**, contendo integração a um banco de dados SQL. Seu principal objetivo é oferecer uma API CRUD eficiente para a gestão de clientes, categorias e produtos, garantindo um fluxo organizado e estruturado de informações.
