@@ -24,7 +24,7 @@ import com.generation.ClientFlow.repository.CategoriaRepository;
 import jakarta.validation.Valid;
 
 @RestController
-@RequestMapping("/temas")
+@RequestMapping("/categorias")
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 public class CategoriaController {
 	
@@ -50,9 +50,9 @@ public class CategoriaController {
     }
     
     @PostMapping
-    public ResponseEntity<Categoria> post(@Valid @RequestBody Categoria tema){
+    public ResponseEntity<Categoria> post(@Valid @RequestBody Categoria categorias){
         return ResponseEntity.status(HttpStatus.CREATED)
-                .body(categoriaRepository.save(tema));
+                .body(categoriaRepository.save(categorias));
     }
     
     @PutMapping
@@ -66,9 +66,9 @@ public class CategoriaController {
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @DeleteMapping("/{id}")
     public void delete(@PathVariable Long id) {
-        Optional<Categoria> tema = categoriaRepository.findById(id);
+        Optional<Categoria> categorias = categoriaRepository.findById(id);
         
-        if(tema.isEmpty())
+        if(categorias.isEmpty())
             throw new ResponseStatusException(HttpStatus.NOT_FOUND);
         
         categoriaRepository.deleteById(id);              
