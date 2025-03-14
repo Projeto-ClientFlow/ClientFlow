@@ -70,7 +70,7 @@ clientflow/
 
 Para melhor visualização, aqui estão os principais componentes do sistema:
 
-- `UsuarioControlle` / `CategoriaController` / `ProdutoController`: Controladores responsáveis pela manipulação das respectivas entidades, implementando métodos como getAll(), getById(), create(), update() e delete().
+- `UsuarioController` / `CategoriaController` / `ProdutoController`: Controladores responsáveis pela manipulação das respectivas entidades, implementando métodos como getAll(), getById(), create(), update() e delete().
 - `Usuario` / `Categoria` / `Produto`: Modelos que representam as entidades do sistema, incluindo atributos essenciais para o funcionamento da aplicação.
 - `UsuarioRepository` / `CategoriaRepository` / `ProdutoRepository`: Interfaces que estendem JpaRepository, permitindo a comunicação eficiente com o banco de dados MySQL.
 application.properties: Arquivo de configuração que define a conexão com o banco de dados, especificando credenciais e propriedades do Spring.
