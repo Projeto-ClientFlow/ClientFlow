@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
 import com.generation.ClientFlow.model.Produto;
+import com.generation.ClientFlow.model.Usuario;
 import com.generation.ClientFlow.repository.ProdutoRepository;
 import com.generation.ClientFlow.service.ProdutosService;
 import com.generation.ClientFlow.repository.CategoriaRepository;
@@ -52,9 +53,10 @@ public class ProdutoController {
 				.orElse(ResponseEntity.status(HttpStatus.NOT_FOUND).build());
 	}
 	
-	@GetMapping("/nome/{Nome}")
-	public ResponseEntity<List<Produto>> getByTitulo(@PathVariable String nome){
-		return ResponseEntity.ok(produtoRepository.findAllByNomeContainingIgnoreCase(nome));
+	@GetMapping("nome/{nome}")
+	public ResponseEntity<Produto> getByNome(@PathVariable String nome) {
+		return produtoRepository.findByNome(nome).map(resposta -> ResponseEntity.ok(resposta))
+				.orElse(ResponseEntity.notFound().build());
 	}
 
 	@PostMapping
