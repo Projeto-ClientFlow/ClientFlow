@@ -53,17 +53,14 @@ public class ProdutosService {
 			// Se o valor do contrato for maior que 10.000, a oportunidade é convertida
 			if (produtoEncontrado.getValorContrato() > 10000) {
 
-				// Exibe no console que a oportunidade foi convertida
-				System.out.println("Oportunidade CONVERTIDA para o produto: " + produtoEncontrado.getNome());
-
-				produtoEncontrado.setPontoFocal("VIP");
+				produtoEncontrado.setPontoFocal(produtoEncontrado.getPontoFocal() + " - VIP");
 				// Salva as alterações no produto
 				produtoRepository.save(produtoEncontrado);
 
 				// Retorna o produto atualizado
 				return Optional.of(produtoEncontrado);
-			
-		}
+
+			}
 		}
 		return Optional.of("Oportunidade NÃO convertida. Valor do contrato muito baixo.");
 	}

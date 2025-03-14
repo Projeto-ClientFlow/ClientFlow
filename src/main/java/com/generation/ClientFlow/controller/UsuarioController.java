@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
+import com.generation.ClientFlow.model.Produto;
 import com.generation.ClientFlow.model.Usuario;
 
 import com.generation.ClientFlow.repository.UsuarioRepository;
@@ -46,6 +47,7 @@ public class UsuarioController {
 				.orElse(ResponseEntity.notFound().build());
 	}
 
+		
 	@GetMapping("nome/{nome}")
 	public ResponseEntity<Usuario> getByNome(@PathVariable String nome) {
 		return usuarioRepository.findByNome(nome).map(resposta -> ResponseEntity.ok(resposta))
