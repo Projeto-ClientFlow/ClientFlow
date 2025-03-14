@@ -14,18 +14,18 @@ import jakarta.validation.constraints.Size;
 
 @Entity 
 @Table(name = "tb_produtos")
-public class Produtos {
+public class Produto {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@NotBlank(message = "O atributo nome da empresa é obrigatório!")
-	@Size(max = 100, message = "O atributo nome da empresa tem que ser menor que 100 caracteres!")
+	@NotBlank(message = "O atributo nome do produto é obrigatório!")
+	@Size(max = 100, message = "O atributo nome do produto tem que ser menor que 100 caracteres!")
 	private String nome;
 	
-	@NotBlank(message = "O atributo segmento da empresa é obrigatório!")
-	@Size(max = 100, message = "O atributo segmento da empresa tem que ser menor que 100 caracteres!")
+	@NotBlank(message = "O atributo segmento é obrigatório!")
+	@Size(max = 100, message = "O atributo segmento tem que ser menor que 100 caracteres!")
 	private String segmento;
 	
 	@NotBlank(message = "O atributo ponto focal é obrigatório!")

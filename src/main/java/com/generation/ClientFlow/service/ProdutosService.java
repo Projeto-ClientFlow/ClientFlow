@@ -5,71 +5,66 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
-import com.generation.ClientFlow.model.Produtos;
-import com.generation.ClientFlow.repository.ProdutosRepository;
+import com.generation.ClientFlow.model.Produto;
+import com.generation.ClientFlow.repository.ProdutoRepository;
 
 @Service
 public class ProdutosService {
 
 	@Autowired
-    private ProdutosRepository produtoRepository;
- 
-	
-	  // Método para cadastrar um novo produto
-    public Optional<Produtos> cadastrarProduto(Produtos produto) {
-        // Verifica se já existe um produto com o mesmo nome
-        if (produtoRepository.findByNome(produto.getNome()).isPresent()) {
-            return Optional.empty(); // Produto já existe
-        }
-        // Salva e retorna o produto cadastrado
-        return Optional.of(produtoRepository.save(produto));
-    }
+	private ProdutoRepository produtoRepository;
 
-    // Método para Atualizar produto
-    public Optional<Produtos> atualizarProduto(Produtos produto) {
+	// Método para cadastrar um novo produto
+	public Optional<Produto> cadastrarProduto(Produto produto) {
+		// Verifica se já existe um produto com o mesmo nome
+		if (produtoRepository.findByNome(produto.getNome()).isPresent()) {
+			return Optional.empty(); // Produto já existe
+		}
+		// Salva e retorna o produto cadastrado
+		return Optional.of(produtoRepository.save(produto));
+	}
 
-        if (produtoRepository.findById(produto.getId()).isPresent()) { // Verifica se o produto existe
+	// Método para Atualizar produto
+	public Optional<Produto> atualizarProduto(Produto produto) {
 
-            Optional<Produtos> buscaProduto = produtoRepository.findByNome(produto.getNome());
+		if (produtoRepository.findById(produto.getId()).isPresent()) { // Verifica se o produto existe
 
-            if (buscaProduto.isPresent() && !buscaProduto.get().getId().equals(produto.getId())) {
-                throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Produto já existe!", null);
-            }
+			Optional<Produto> buscaProduto = produtoRepository.findByNome(produto.getNome());
 
-            return Optional.ofNullable(produtoRepository.save(produto)); // Salva e retorna o produto atualizado
-        }
+			if (buscaProduto.isPresent() && !buscaProduto.get().getId().equals(produto.getId())) {
+				throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Produto já existe!", null);
+			}
 
-        return Optional.empty(); // Retorna vazio se o produto não existir
-    }
-    
- // Função especial: Verificar oportunidade com base no valor do contrato
-    public Optional<Produtos> verificarOportunidadeProduto(Long id) {
-    	
-    	Optional<Produtos> produtos = produtoRepository.findById(id);
-        
-        // Verifica se o produto foi passado corretamente
-        if (produtos.isPresent()) {
-            Produtos produtoEncontrado = produtos.get();
+			return Optional.ofNullable(produtoRepository.save(produto)); // Salva e retorna o produto atualizado
+		}
 
-            //  Se o valor do contrato for maior que 10.000, a oportunidade é convertida
-            if (produtoEncontrado.getValorContrato() > 10000) {
-                
-                // Exibe no console que a oportunidade foi convertida
-                System.out.println("Oportunidade CONVERTIDA para o produto: " + produtoEncontrado.getNome());
-                
-                produtoEncontrado.setPontoFocal("VIP");
-                // Salva as alterações no produto
-                produtoRepository.save(produtoEncontrado);
-                
-                // Retorna o produto atualizado
-                return Optional.of(produtoEncontrado);
-            } else {
-                // Exibe no console que a oportunidade não foi convertida
-                System.out.println("Oportunidade NÃO convertida. Valor do contrato muito baixo.");
-                Optional.empty();
-            }
-        }
-        
-        return Optional.empty();
-    }
+		return Optional.empty(); // Retorna vazio se o produto não existir
+	}
+
+	// Função especial: Verificar oportunidade com base no valor do contrato
+	public Optional<Object> verificarOportunidadeProduto(Long id) {
+
+		Optional<Produto> produto = produtoRepository.findById(id);
+
+		// Verifica se o produto foi passado corretamente
+		if (produto.isPresent()) {
+			Produto produtoEncontrado = produto.get();
+
+			// Se o valor do contrato for maior que 10.000, a oportunidade é convertida
+			if (produtoEncontrado.getValorContrato() > 10000) {
+
+				// Exibe no console que a oportunidade foi convertida
+				System.out.println("Oportunidade CONVERTIDA para o produto: " + produtoEncontrado.getNome());
+
+				produtoEncontrado.setPontoFocal("VIP");
+				// Salva as alterações no produto
+				produtoRepository.save(produtoEncontrado);
+
+				// Retorna o produto atualizado
+				return Optional.of(produtoEncontrado);
+			
+		}
+		}
+		return Optional.of("Oportunidade NÃO convertida. Valor do contrato muito baixo.");
+	}
 }
