@@ -18,7 +18,7 @@ public class ProdutosService {
 	  // Método para cadastrar um novo produto
     public Optional<Produtos> cadastrarProduto(Produtos produto) {
         // Verifica se já existe um produto com o mesmo nome
-        if (produtoRepository.findAllByNomeContainingIgnoreCase(produto.getNome()).isPresent()) {
+        if (produtoRepository.findByNome(produto.getNome()).isPresent()) {
             return Optional.empty(); // Produto já existe
         }
         // Salva e retorna o produto cadastrado
@@ -30,9 +30,9 @@ public class ProdutosService {
 
         if (produtoRepository.findById(produto.getId()).isPresent()) { // Verifica se o produto existe
 
-            Optional<Produtos> buscaProdutos = produtosRepository.findAllByNomeContainingIgnoreCase(produto.getNome());
+            Optional<Produtos> buscaProduto = produtoRepository.findByNome(produto.getNome());
 
-            if (buscaProdutos.isPresent() && !buscaProdutos.get().getId().equals(produto.getId())) {
+            if (buscaProduto.isPresent() && !buscaProduto.get().getId().equals(produto.getId())) {
                 throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Produto já existe!", null);
             }
 
@@ -40,10 +40,12 @@ public class ProdutosService {
         }
 
         return Optional.empty(); // Retorna vazio se o produto não existir
-    
     }
+    
  // Função especial: Verificar oportunidade com base no valor do contrato
-    public Optional<Produtos> verificarOportunidadeProduto(Optional<Produtos> produtos) {
+    public Optional<Produtos> verificarOportunidadeProduto(Long id) {
+    	
+    	Optional<Produtos> produtos = produtoRepository.findById(id);
         
         // Verifica se o produto foi passado corretamente
         if (produtos.isPresent()) {
@@ -52,12 +54,10 @@ public class ProdutosService {
             //  Se o valor do contrato for maior que 10.000, a oportunidade é convertida
             if (produtoEncontrado.getValorContrato() > 10000) {
                 
-                // Atualiza o status da oportunidade para true
-                produtoEncontrado.setStatusOportunidade(true);
-                
                 // Exibe no console que a oportunidade foi convertida
                 System.out.println("Oportunidade CONVERTIDA para o produto: " + produtoEncontrado.getNome());
                 
+                produtoEncontrado.setPontoFocal("VIP");
                 // Salva as alterações no produto
                 produtoRepository.save(produtoEncontrado);
                 
@@ -66,7 +66,10 @@ public class ProdutosService {
             } else {
                 // Exibe no console que a oportunidade não foi convertida
                 System.out.println("Oportunidade NÃO convertida. Valor do contrato muito baixo.");
-                
+                Optional.empty();
             }
+        }
         
+        return Optional.empty();
+    }
 }

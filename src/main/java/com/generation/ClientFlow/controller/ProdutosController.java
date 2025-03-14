@@ -20,7 +20,7 @@ import org.springframework.web.server.ResponseStatusException;
 
 import com.generation.ClientFlow.model.Produtos;
 import com.generation.ClientFlow.repository.ProdutosRepository;
-
+import com.generation.ClientFlow.service.ProdutosService;
 import com.generation.ClientFlow.repository.CategoriaRepository;
 
 import jakarta.validation.Valid;
@@ -37,6 +37,9 @@ public class ProdutosController {
 	@Autowired
 	private CategoriaRepository categoriaRepository;
 	
+	@Autowired
+	private ProdutosService produtoService;
+	
 	@GetMapping
 	public ResponseEntity<List<Produtos>> getAll(){
 		return ResponseEntity.ok(produtoRepository.findAll());
@@ -51,7 +54,7 @@ public class ProdutosController {
 	
 	@GetMapping("/nome/{Nome}")
 	public ResponseEntity<List<Produtos>> getByTitulo(@PathVariable String nome){
-		return ResponseEntity.ok(produtoRepository.findAllByTituloContainingIgnoreCase(nome));
+		return ResponseEntity.ok(produtoRepository.findAllByNomeContainingIgnoreCase(nome));
 	}
 
 	@PostMapping
@@ -63,6 +66,14 @@ public class ProdutosController {
 	    throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Categoria não existe!",null);
 	}
 
+	
+	@PostMapping("/verifica-oportunidade/{id}")
+	public ResponseEntity<Optional<Produtos>> post(@PathVariable Long id){
+		return ResponseEntity.status(HttpStatus.CREATED)
+	            .body(produtoService.verificarOportunidadeProduto(id));
+	} 
+	 
+	
 	
 	@PutMapping
 	public ResponseEntity<Produtos> put(@Valid @RequestBody Produtos produto) {

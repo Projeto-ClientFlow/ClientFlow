@@ -23,10 +23,10 @@ public class Categoria {
 	@NotNull(message = "O Atributo Descrição é obrigatório")
 	private String descricao;
 	
-	//@OneToMany(fetch = FetchType.LAZY, mappedBy = "categoria", cascade = CascadeType.REMOVE)
-	//@JsonIgnoreProperties("categoria")
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "categoria", cascade = CascadeType.REMOVE)
+	@JsonIgnoreProperties("categoria")
 	private List<Produtos> produtos;
-
+	
 	public Long getId() {
 		return id;
 	}
@@ -41,8 +41,7 @@ public class Categoria {
 
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
-	}
-
+	}	
 	public List<Produtos> getProdutos() {
 		return produtos;
 	}
@@ -50,6 +49,4 @@ public class Categoria {
 	public void setProdutos(List<Produtos> produtos) {
 		this.produtos = produtos;
 	}
-	
-	
 }
