@@ -50,15 +50,15 @@ clientflow/
 ├── controller/
 │   ├── UsuarioController.java
 │   ├── CategoriaController.java
-│   └── ProdutosController.java
+│   └── ProdutoController.java
 ├── model/
 │   ├── Usuario.java
 │   ├── Categoria.java
-│   └── Produtos.java
+│   └── Produto.java
 ├── repository/
 │   ├── UsuarioRepository.java
 │   ├── CategoriaRepository.java
-│   └── ProdutosRepository.java
+│   └── ProdutoRepository.java
 ├── resources/
 │   └── application.properties
 └── ClientFlowApplication.java
@@ -70,9 +70,9 @@ clientflow/
 
 Para melhor visualização, aqui estão os principais componentes do sistema:
 
-- `UsuarioControlle` / `CategoriaController` / `ProdutosController`: Controladores responsáveis pela manipulação das respectivas entidades, implementando métodos como getAll(), getById(), create(), update() e delete().
-- `Usuario` / `Categoria` / `Produtos`: Modelos que representam as entidades do sistema, incluindo atributos essenciais para o funcionamento da aplicação.
-- `UsuarioRepository` / `CategoriaRepository` / `ProdutosRepository`: Interfaces que estendem JpaRepository, permitindo a comunicação eficiente com o banco de dados MySQL.
+- `UsuarioControlle` / `CategoriaController` / `ProdutoController`: Controladores responsáveis pela manipulação das respectivas entidades, implementando métodos como getAll(), getById(), create(), update() e delete().
+- `Usuario` / `Categoria` / `Produto`: Modelos que representam as entidades do sistema, incluindo atributos essenciais para o funcionamento da aplicação.
+- `UsuarioRepository` / `CategoriaRepository` / `ProdutoRepository`: Interfaces que estendem JpaRepository, permitindo a comunicação eficiente com o banco de dados MySQL.
 application.properties: Arquivo de configuração que define a conexão com o banco de dados, especificando credenciais e propriedades do Spring.
 - `ClientFlowApplication`: Classe principal que inicializa a aplicação Spring Boot.
 
