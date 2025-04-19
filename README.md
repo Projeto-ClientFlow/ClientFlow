@@ -99,15 +99,6 @@ Este projeto foi possível graças às contribuições das seguintes desenvolved
 
 <div align="center">
   <table>
-    <tr>
-      <td align="center">
-        <a href="https://www.linkedin.com/in/larissa-mata-a32a5a104/" title="Linkedin da Larissa Mata">
-          <img src="https://media.licdn.com/dms/image/v2/D4D03AQH8ZGW05SThzA/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1698075416577?e=1747267200&v=beta&t=MZQra9MZhtWWZqrZx6Re7loE6-KZIhHj9kj5Rbxe_Ds" width="100px;" alt="Foto da Larissa Mata"/><br>
-          <sub>
-            <b>Larissa Mata</b>
-          </sub>
-        </a>
-      </td>
       <td align="center">
         <a href="https://www.linkedin.com/in/elianempontes/" title="Linkedin da Eliane Medeiros">
           <img src="https://media.licdn.com/dms/image/v2/D4D03AQGppzwuto4Skw/profile-displayphoto-shrink_400_400/B4DZOzMU5sHUAg-/0/1733878173890?e=1747267200&v=beta&t=dYk2XBvZ6Be-J99J4sp9kljf2TF3ZZ5YZ8lEu72U7oA" width="100px;" alt="Foto da Eliane Medeiros"/><br>
@@ -117,22 +108,18 @@ Este projeto foi possível graças às contribuições das seguintes desenvolved
         </a>
       </td>
       <td align="center">
-        <a href="https://github.com/willaevangelista" title="GitHub da Willa Evangelista">
-          <img src="https://avatars.githubusercontent.com/u/84138876?v=4" width="100px;" alt="Foto da Willa Evangelista"/><br>
-          <sub>
-            <b>Willa Evangelista</b>
-          </sub>
-        </a>
-      </td>
-    </tr>
-  </table>
-  <table>
-    <tr>
-      <td align="center">
         <a href="https://www.linkedin.com/in/larissa-alves-s/" title="Linkedin da Larissa Alves">
           <img src="https://media.licdn.com/dms/image/v2/D4D03AQFZaBaC-aUVow/profile-displayphoto-shrink_400_400/B4DZSqh72uHYAg-/0/1738027811288?e=1747267200&v=beta&t=6DM_y3QMq47Kb_qSkOcxjFlPsaBcqwZ_0JxLYxL1Bm8" width="100px;" alt="Foto da Larissa Alves"/><br>
           <sub>
             <b>Larissa Alves</b>
+          </sub>
+        </a>
+      </td>
+      <td align="center">
+        <a href="https://www.linkedin.com/in/larissa-mata-a32a5a104/" title="Linkedin da Larissa Mata">
+          <img src="https://media.licdn.com/dms/image/v2/D4D03AQH8ZGW05SThzA/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1698075416577?e=1747267200&v=beta&t=MZQra9MZhtWWZqrZx6Re7loE6-KZIhHj9kj5Rbxe_Ds" width="100px;" alt="Foto da Larissa Mata"/><br>
+          <sub>
+            <b>Larissa Mata</b>
           </sub>
         </a>
       </td>
@@ -143,7 +130,14 @@ Este projeto foi possível graças às contribuições das seguintes desenvolved
             <b>Mariana Carmo</b>
           </sub>
         </a>
-    </tr>
+      <td align="center">
+        <a href="https://github.com/willaevangelista" title="GitHub da Willa Evangelista">
+          <img src="https://avatars.githubusercontent.com/u/84138876?v=4" width="100px;" alt="Foto da Willa Evangelista"/><br>
+          <sub>
+            <b>Willa Evangelista</b>
+          </sub>
+        </a>
+      </td>
   </table>
 </div>
 
